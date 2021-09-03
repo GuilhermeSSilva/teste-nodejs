@@ -1,0 +1,28 @@
+{
+  "name": "teste-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuilhermeSSilva/teste-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GuilhermeSSilva/teste-nodejs/issues"
+  },
+  "homepage": "https://github.com/GuilhermeSSilva/teste-nodejs#readme",
+  "dependencies": {
+    "express": "*",
+    "knex": "^0.95.10",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
