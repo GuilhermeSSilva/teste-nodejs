@@ -4,8 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "nodemon": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "knex:migrate": "knex --knexfile knexfile.js migrate:latest",
+    "knex:migrate:rollback": "knex --knexfile knexfile.js migrate:rollback"
   },
   "repository": {
     "type": "git",
