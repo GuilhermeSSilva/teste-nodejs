@@ -5,7 +5,7 @@ exports.up = async function up(knex) {
     table.increments('id').primary();
     table.string('title').notNullable();
     table.string('director').notNullable();
-    table.float('allocationValue').notNullable();
+    table.float('rentValue').notNullable();
     table.integer('numberCopies').notNullable();
   })
 }
