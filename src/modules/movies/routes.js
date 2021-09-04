@@ -1,8 +1,8 @@
 const express = require('express');
 const services = require('./services');
-const routes = express.Router();
+const movieRoutes = express.Router();
 
-routes.post('/registerMovies', async (req, res) => {
+movieRoutes.post('/registerMovies', async (req, res) => {
 
     const { title, director, rentValue, numberCopies } = req.body;
 
@@ -16,9 +16,9 @@ routes.post('/registerMovies', async (req, res) => {
     
 });
 
-routes.get('/listMovies', async(req, res) => {
+movieRoutes.get('/listMovies', async(req, res) => {
     const response = await services.listMovies();
     res.status(response.status).send(response.message);
 })
 
-module.exports = routes;
+module.exports = movieRoutes;
