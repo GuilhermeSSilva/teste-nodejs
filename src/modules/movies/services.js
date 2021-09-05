@@ -1,6 +1,6 @@
 const db = require('./../../database/connection.js');
 
-async function registerMovies(title, director, rentValue, numberCopies){
+async function registerMovies(title, director, rentValue, numberCopies) {
     return await db('movies').insert({
         title,
         director,
@@ -29,7 +29,32 @@ async function listMovies() {
     });
 }
 
+async function getMovies(idMovies) {
+    return await db('movies').select('*').where('movies.id', '=', idMovies)
+    .then((response) => response)
+    .catch((error) => error);
+}
+
+async function isAvailable(idMovies) {
+    let rent, flag = true;
+    for(let i = 0; i<idMovies.length; i++) {
+        rent = await db('rent')
+                            .select('*')
+                            .innerJoin('movies', 'rent.idMovie', '=', 'movies.id')
+                            .where('rent.idMovie', '=', `${idMovies[i]}`)
+                            .where('rent.isRented', '=', '1');
+                            
+        if (rent[0] && rent != [] && rent.length >= rent[0].numberCopies) {
+            flag = false;
+            return flag;
+        }
+    }
+    return flag;
+}
+
 module.exports = {
     registerMovies,
-    listMovies
+    listMovies,
+    getMovies,
+    isAvailable
 }
