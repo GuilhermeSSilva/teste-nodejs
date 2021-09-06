@@ -39,6 +39,9 @@ $ npm start
 
 ### Explicação das rotas
 
+<h3>get(/doc)</h3>
+  <p>Rota da documentação do swagger</p>
+
 <h3>post(/movies)</h3>
 
   <p>É a rota de cadastro de filmes, todos os dados são obrigatórios, a rota espera os seguintes dados:</p>
@@ -79,3 +82,6 @@ $ npm start
     <li>nameUser ou cpfUser</li>
     <li>idMovies</li>
   </ul>
+  
+  
+  
