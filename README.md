@@ -36,6 +36,10 @@ $ npm start
 ```
 
 
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=teste%20locadora%20nodeJS&uri=https%3A%2F%2Fraw.githubusercontent.com%2FGuilhermeSSilva%2Fteste-nodejs%2Fdevelop%2FInsomnia_2021-09-06.json)
+
+
+
 
 ### Explicação das rotas
 
