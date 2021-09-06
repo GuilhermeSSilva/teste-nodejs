@@ -25,7 +25,7 @@
     "express": "*",
     "knex": "^0.95.10",
     "sqlite3": "^5.0.2",
-    "swagger-ui-express": "^4.1.6",
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
