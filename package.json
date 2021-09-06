@@ -8,7 +8,8 @@
     "nodemon": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "knex:migrate": "knex --knexfile knexfile.js migrate:latest",
-    "knex:migrate:rollback": "knex --knexfile knexfile.js migrate:rollback"
+    "knex:migrate:rollback": "knex --knexfile knexfile.js migrate:rollback",
+    "swagger-autogen": "node swagger.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,8 @@
   "dependencies": {
     "express": "*",
     "knex": "^0.95.10",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "swagger-ui-express": "^4.1.6",
   },
   "devDependencies": {
     "nodemon": "^2.0.12"

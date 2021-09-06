@@ -20,7 +20,7 @@ rentRoutes.post('/rent', async (req, res) => {
             const isAvailable = await servicesMovies.isAvailable(idMovies);
 
             if(!isAvailable) {
-                res.status(200).send({response:'Desculpe mas estes filmes já foram alugados'});
+                res.status(404).send({response:'Desculpe mas estes filmes já foram alugados'});
                 
             } else {
                 const rentIds = await servicesRent.rent(rentalDate, rentalTime, "", "", 1, idMovies, user[0].id);
@@ -61,7 +61,7 @@ rentRoutes.post('/returnMovies', async(req, res) => {
             const time = util.time();
             const returnMovie = await servicesRent.returnMovies(onlyRents, date, time);
             if(returnMovie.status == 200) {
-                res.status(200).send({response:totalValue});
+                res.status(200).send({value:totalValue});
             } else {
                 res.status(returnMovie.status).send({response:returnMovie.message});
             }
