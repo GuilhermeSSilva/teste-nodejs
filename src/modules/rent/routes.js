@@ -7,7 +7,7 @@ const servicesUser = require('./../users/services');
 const servicesMovies = require('./../movies/services');
 const servicesRent = require('./services');
 
-rentRoutes.post('/rentMovies', async (req, res) => {
+rentRoutes.post('/rent', async (req, res) => {
     const {nameUser, cpfUser} = req.body;
     let {idMovies} = req.body;
     const user = await servicesUser.getUser(nameUser, cpfUser);

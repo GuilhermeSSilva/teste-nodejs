@@ -2,7 +2,7 @@ const express = require('express');
 const services = require('./services');
 const userRoutes = express.Router();
 
-userRoutes.post('/registerUser', async(req, res) => {
+userRoutes.post('/user', async(req, res) => {
     
     const {name, cpf, telephone, address} = req.body;
 
