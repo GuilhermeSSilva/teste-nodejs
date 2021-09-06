@@ -8,17 +8,17 @@ movieRoutes.post('/registerMovies', async (req, res) => {
 
     if (title && director && rentValue && numberCopies){
         const response = await services.registerMovies(title, director, rentValue, numberCopies);
-        res.status(response.status).send({response:response.message});
+        res.status(response.status).send(response.message);
 
     } else {
-        res.status(400).send({response:'Por favor preencha todos os campos'});
+        res.status(400).send('Por favor preencha todos os campos');
     }
     
 });
 
 movieRoutes.get('/listMovies', async(req, res) => {
     const response = await services.listMovies();
-    res.status(response.status).send({response:response.message});
+    res.status(response.status).send(response.message);
 })
 
 module.exports = movieRoutes;

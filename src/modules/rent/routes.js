@@ -18,10 +18,10 @@ rentRoutes.post('/rentMovies', async (req, res) => {
             idMovies = [idMovies];
         }
             const isAvailable = await servicesMovies.isAvailable(idMovies);
-
+            // servicesRent.cleanTable();
+            // return;
             if(!isAvailable) {
-                res.status(200).send({response:'Desculpe mas estes filmes já foram alugados'});
-                
+                res.status(200).send('Desculpe mas estes filmes já foram alugados');
             } else {
                 const rentIds = await servicesRent.rent(rentalDate, rentalTime, "", "", 1, idMovies, user[0].id);
                 const rentResponse = await servicesRent.rentResponse(rentIds);
@@ -39,37 +39,16 @@ rentRoutes.post('/rentMovies', async (req, res) => {
             }
 
     } else if(user.length == 0){
-        res.status(404).send({response:'Usuário não encontrado'});
+        res.status(404).send('Usuário não encontrado');
     }
 });
 
 
 rentRoutes.post('/returnMovies', async(req, res) => {
-    const {nameUser, cpfUser} = req.body;
-    let {idMovies} = req.body;
+    const {nameUser, cpfUser, idMovies} = req.body;
     const user = await servicesUser.getUser(nameUser, cpfUser);
     if(user.length > 0 && idMovies) {
-        if(!Array.isArray(idMovies)) {
-            idMovies = [idMovies];
-        }
-        const rents = await servicesRent.getRents(user[0].id, idMovies);
-        if(rents[0].length > 0) {
-            const lagTime = util.rentedTime(rents[0][0].rentalDate, rents[0][0].rentalTime);
-            const totalValue = util.calculateValue(rents, lagTime);
-            const onlyRents = await servicesRent.getOnlyRents(idMovies);
-            const date = util.date();
-            const time = util.time();
-            const returnMovie = await servicesRent.returnMovies(onlyRents, date, time);
-            if(returnMovie.status == 200) {
-                res.status(200).send({response:totalValue});
-            } else {
-                res.status(returnMovie.status).send({response:returnMovie.message});
-            }
-            
-        } else {
-            res.status(400).send({response:'Não há filmes a serem devolvidos'});
-        }
-        
+        console.log('funcionado');
     }
 });
 
